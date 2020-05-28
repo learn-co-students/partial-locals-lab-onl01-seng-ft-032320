@@ -1,3 +1,4 @@
-<% classroom.students.each do |stn| %>
-    <%= render partial: 'students/student', locals: {student: stn} %>
-<% end %>
+<p>
+<%= @classroom.course_name %>
+<%= @classroom.semester %>
+</p>
