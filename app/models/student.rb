@@ -15,8 +15,10 @@ class Student < ActiveRecord::Base
   has_many :classrooms, through: :classroom_students
 
   def self.search(search_text)
-    if search_text
-      results = Student.where("name LIKE ?", "%#{search_text}%") 
+    if search_text.present?
+      where("name LIKE ?", "%#{search_text}%") 
+    else
+      self.all
     end
   end
 end
