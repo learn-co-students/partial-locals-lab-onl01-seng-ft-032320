@@ -1,0 +1,9 @@
+<% if params[:query].present? %>
+   <%= @results.each do |r| %>
+      <%= render partial: 'student', locals: {student: r } %>
+   <% end %>
+<% else %>
+   <%= @students.each do |s| %>
+      <%= render partial: 'student', locals: {student: s } %>
+   <% end %>
+<% end %>
