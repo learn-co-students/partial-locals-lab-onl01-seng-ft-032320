@@ -15,12 +15,13 @@ class Student < ActiveRecord::Base
   has_many :classrooms, through: :classroom_students
 
   def self.search(search_student)
-      @return_array = []
-      self.all.each do |student|
-        if student.name.match(/#{search_student}/i)
-            @return_array << student
-        end
-      end
-      @return_array
+      # @return_array = []
+      # self.all.each do |student|
+      #   if student.name.match(/#{search_student}/i)
+      #       @return_array << student
+      #   end
+      # end
+      # @return_array
+      Student.where("name LIKE ?", "%#{search_student}%")
   end
 end
